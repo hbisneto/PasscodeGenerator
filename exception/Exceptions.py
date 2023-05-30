@@ -1,5 +1,27 @@
-﻿## Exceptions File
-## This file contains events that`s raised when the program must to stop
+﻿"""
+Exceptions.py
+
+- This file contains events raised when the program must to stop:
+
+```
+from exception import Exceptions
+
+def main():
+  Exceptions.Throw.FileExists()
+```
+Output:
+
+```
+Traceback (most recent call last):
+  File "/YourProject/mac/MacApp.py", line 11, in Main
+    Exceptions.Throw.FileExists()
+  File "/YourProject/exception/Exceptions.py", line 53, in FileExists
+    raise Exception(f'{self.exctype} The file already exists')
+Exception: >> An Exception occurred: The file already exists
+```
+"""
+## Exceptions File
+## This file contains events that's raised when the program must to stop
 
 class Raise:
   def MajorVersion(self, CurrentVersion, TargetVersion, TargetMajor):
@@ -11,7 +33,7 @@ class Raise:
     print('=' * 80)
     print(">> WARNING <<")
     print('=' * 80)
-    print(f'>> Your appication targets a version of Python older than the version currently installed. You may get errors during the process')
+    print(f'>> Your appication targets a version of Python older than the version currently\ninstalled. You may get errors during the process')
     print('=' * 80)
     print(f'- Current Version: {CurrentVersion}')
     print(f'- Target Version: {TargetVersion}')
@@ -27,11 +49,11 @@ class Raise:
 
   def FileExists(self):
     raise Exception(f'{self.exctype} The file already exists')
-
+  
   def DirectoryExists(self):
     raise Exception(f'{self.exctype} The directory already exists')
-
-  def ImportLib():
+  
+  def ImportLib(self):
    raise RuntimeError(">> Could not import library: Check if the libraries are installed and run the program again.")
 
   def InputFormat(self):
@@ -40,21 +62,19 @@ class Raise:
     print("=" * 80)
     print(">> Your input is not valid: Check your input and try again")
     print("=" * 80)
-
+  
   def ProgramQuit(self):
     print("=" * 80)
     print(f'{self.exctype} PYBRIDGE HAS QUIT!')
     print("=" * 80)
-    print(f'>> The program has been closed and couldn`t be restored.')
-    print(f'>> Run the program again!')
+    print(f'>> The program has been closed and couldn`t be restored.\n>> Run the program again!')
     print("=" * 80)
 
   def InvalidOption(self):
     print("=" * 80)
     print(f'{self.exctype} INVALID OPTION')
     print("=" * 80)
-    print(f'>> You typed an invalid option.')
-    print(f'>> Running the program again!')
+    print(f'>> You typed an invalid option.\n>> Running the program again!')
     print("=" * 80)
 
   def ProjectsLoadFail(self):
@@ -77,9 +97,9 @@ class Raise:
     print("=" * 80)
     print(f'{self.exctype} COMPRESSED FILE CREATION FAILED!')
     print("=" * 80)
-    print("=" * 80)
+    print("*" * 80)
     print(f'>> PyBridge could not create a compressed file from your backup')
     print(f'>> Try again later.')
-    print("=" * 80)
+    print("*" * 80)
 
 Throw = Raise(">> An Exception occurred:")

@@ -9,20 +9,10 @@ This project was created using [PyBridge](https://github.com/hbisneto/PyBridge)
 
 PasscodeGenerator requires Python 3.9.0 or later to run
 
-## Installation
+## Additional Information
 
-```
-pip install PasscodeGenerator
-```
-
-## External Links
-
-Here is some external links that you can use in your `README.md` file.
-
-- [First Link](https://google.com)
-- [Second Link](https://google.com)
-- [Third Link](https://google.com)
+- Repository [Gerador-de-senhas](https://github.com/fernandocardeal/Gerador-de-senhas) forked from [@fernandocardeal](https://github.com/fernandocardeal/)
 
 #
 
-Copyright © 2023 Bisneto. All rights reserved.
+Copyright © 2023 Heitor Bisneto. All rights reserved.

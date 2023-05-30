@@ -1,7 +1,13 @@
-﻿## Requirements File
+﻿"""
+Requirements.py
+
+- This file is used to check if system matches with the minimum requirements to run
+"""
+## Requirements File
 ## This file is used to check if system matches with the minimum requirements to run
 
 import sys
+import subprocess
 from exception import Exceptions
 
 ## Change "REQUIRE" to "False" to skip system check
@@ -27,39 +33,18 @@ if REQUIRE == True:
    ## print(f'>> My system current version: Python {CurrentVersion}')
    ## print(f'>> Required version to run: Python {TargetVersion}')
 
-   def CheckMajorVersion():
-      ## Note: if this key is set to False, the system won`t run even if meets requirements
-      AllowKey = True
-      ## Note: if this key is set to False, the system won`t run even if meets requirements
-
-      if MajorVersion < TargetMajor:
-         AllowKey = False
-      else:
-         if MinorVersion < TargetMinor:
-             AllowKey = False
-         else:
-             if BuildVersion < TargetBuild:
-                 AllowKey = False
-
-      if AllowKey == False:
-         Exceptions.Throw.MajorVersion(CurrentVersion, TargetVersion, MajorVersion)
-
-   def CheckMinorVersion():
-      ## Note: if this key is set to True, the system will warn evertime it runs
-      ShowWarn = False
-      ## Note: if this key is set to True, the system will warn evertime it runs
-
-      if MajorVersion > TargetMajor:
-         ShowWarn = True
-      else:
-         if MinorVersion > TargetMinor:
-             ShowWarn = True
-         else:
-             if BuildVersion > TargetBuild:
-                 ShowWarn = True
-
-      if ShowWarn == True:
+   def CheckVersion():
+      if TargetMajor < MajorVersion:
          Exceptions.Throw.MinorVersion(CurrentVersion, TargetVersion, TargetMinor)
-
-   CheckMajorVersion()
-   CheckMinorVersion()
+      elif TargetMajor > MajorVersion:
+         Exceptions.Throw.MajorVersion(CurrentVersion, TargetVersion, MajorVersion)
+      else:
+         if TargetMinor < MinorVersion:
+            Exceptions.Throw.MinorVersion(CurrentVersion, TargetVersion, TargetMinor)
+         elif TargetMinor > MinorVersion:
+            Exceptions.Throw.MajorVersion(CurrentVersion, TargetVersion, MajorVersion)
+         else:
+            if TargetBuild < BuildVersion:
+               Exceptions.Throw.MinorVersion(CurrentVersion, TargetVersion, TargetMinor)
+            elif TargetBuild > BuildVersion:
+               Exceptions.Throw.MajorVersion(CurrentVersion, TargetVersion, MajorVersion)
