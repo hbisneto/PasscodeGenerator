@@ -16,3 +16,6 @@ Music = f'{User}Music/'
 PyBridgeFolder = f'{Documents}PyBridge/'
 ProjectsRepo = f'{PyBridgeFolder}Projects/'
 PythonExtension = '.py'
+
+## Other implementations
+PASSCODE_FILE = CurrentPath + "/Passcode.pcg"

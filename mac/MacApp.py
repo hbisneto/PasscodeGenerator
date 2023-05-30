@@ -3,7 +3,6 @@
 
 from exception import Exceptions
 from mac import FileSystem
-
 from random import sample
 from pyperclip import copy
 
@@ -22,15 +21,12 @@ def main():
    quant = int(input('Informe a quantidade de caracteres que deseja: '))
    nova_senha = gerar_senha(quant)
    copy(nova_senha)
-   try:
-      with open(FileSystem.PASSCODE_FILE, 'a') as arquivo:
-         dados = f'Email: {email} \nSite: {site} \nSenha: {nova_senha}\n\n'
-         arquivo.write(dados)
-         arquivo.close()
-      print(f'A senha gerada foi {nova_senha}: {len(nova_senha)}')
-      print('Ela foi copiada para a sua área de transferência e adicionada ao arquivo de senhas')
-   except:
-      print(">> Algo de errado não está certo: Verifique se o arquivo existe e tente novamente.")
-      
+
+   with open(FileSystem.PASSCODE_FILE, 'a') as arquivo:
+      dados = f'Email: {email} \nSite: {site} \nSenha: {nova_senha}\n\n'
+      arquivo.write(dados)
+      arquivo.close()
+   print(f'A senha gerada foi {nova_senha}: {len(nova_senha)}')
+   print('Ela foi copiada para a sua área de transferência e adicionada ao arquivo de senhas')
 
 main()
